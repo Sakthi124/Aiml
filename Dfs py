@@ -1,0 +1,40 @@
+def dfs(graph, node, visited=None):
+
+ if visited is None:
+
+ visited = set() # Initialize the visited set
+
+ if node not in visited:
+
+ print(node, end=" ") # Process the node
+
+ visited.add(node) # Mark as visited
+
+ for neighbor in graph[node]: # Explore neighbors recursively
+ dfs(graph, neighbor, visited)
+
+# Define the graph as an adjacency list
+
+graph = {
+
+ 'A': ['B', 'C'],
+
+ 'B': ['A', 'D', 'E'],
+
+ 'C': ['A', 'F'],
+
+ 'D': ['B'],
+
+ 'E': ['B', 'H'],
+
+ 'F': ['C'],
+
+ 'H': ['E']
+
+}
+
+# Perform DFS traversal from node 'A'
+
+print("DFS Traversal: ")
+
+dfs(graph, 'A')
